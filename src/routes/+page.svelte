@@ -3,12 +3,16 @@
   let isMapExpanded = false;
 
   const schedule = [
-    { start: '10:00', duration: '180 min', event: 'Uncloud Cowork', speaker: 'Chilling, working' },
-    { start: '13:30', duration: '30 min', event: 'cjp2p', speaker: 'Kermit' },
-    { start: '14:00', duration: '30 min', event: 'Coordination', speaker: 'Chris', handle: '@chrishobcroft', url: 'https://x.com/chrishobcroft' },
-    { start: '14:30', duration: '30 min', event: 'Bee in Browser', speaker: 'Pavel' },
-    { start: '15:00', duration: '30 min', event: 'TBC', speaker: 'Viktor' },
-    { start: '16:00', duration: '30 min', event: 'Closing', speaker: 'Heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
+    { start: '10:00', duration: '180 min', event: '[doors open]', speaker: 'chilling, networking' },
+    { start: '12:00', duration: '30 min', event: 'What is Uncloud?', speaker: 'group discussion' },
+    { start: '12:30', duration: '30 min', event: 'cjp2p', speaker: 'Kermit' },
+    { start: '13:00', duration: '30 min', event: 'deboot update', speaker: 'Chris'},
+    { start: '13:30', duration: '30 min', event: 'Bee in Browser', speaker: 'Pavel' },
+    { start: '14:00', duration: '30 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '14:30', duration: '30 min', event: '*TBC', speaker: 'Aata.eth'},
+    { start: '15:00', duration: '30 min', event: '*TBC', speaker: 'Casey'},
+    { start: '15:30', duration: '30 min', event: '*TBC', speaker: 'TBC'},
+    { start: '16:00', duration: '30 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
   ];
 
   const faqs = [
@@ -67,12 +71,12 @@
           <div class="event-info-compact">
             <span class="e-title">{item.event}</span>
             <span class="e-speaker">
-              {#if item.event === 'Closing'}
+              {#if item.event && item.linkText}
                 {item.speaker}
                 <a href={item.linkUrl} target="_blank" class="meetup-link">{item.linkText}</a>
                 {item.speakerSuffix}
               {:else}
-                by {item.speaker}
+                {item.speaker}
                 {#if item.handle}
                   <a href={item.url} target="_blank" class="speaker-handle">({item.handle})</a>
                 {/if}
@@ -162,8 +166,8 @@
   <footer>
     <div class="footer-content">
       <img src="/logo.png" alt="Uncloud Logo" class="footer-logo" />
-      <p>Organized by Uncloud Open Research</p>
-      <p class="non-profit">A nonprofit open collective. No copyright reserved.</p>
+      <p>Organized by Uncloud Open Research, a nonprofit open collective.</p>
+      <p><a href="https://github.com/burningtree/uncloud-day-2026">Source code</a></p>
     </div>
   </footer>
 </div>
@@ -359,11 +363,6 @@
     text-decoration: none;
     font-weight: 400;
     transition: opacity 0.2s ease;
-  }
-
-  .speaker-handle:hover {
-    opacity: 1;
-    text-decoration: underline;
   }
 
   @media (max-width: 600px) {
