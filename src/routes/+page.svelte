@@ -167,7 +167,7 @@
     <div class="footer-content">
       <img src="/logo.png" alt="Uncloud Logo" class="footer-logo" />
       <p>Organized by Uncloud Open Research, a nonprofit open collective.</p>
-      <p><a href="https://github.com/burningtree/uncloud-day-2026">Source code</a></p>
+      <p><a href="https://app.radicle.xyz/nodes/seed.pp0.co/rad%3AzP2BLJhnCDBiokEgD6PqTSeQLW1r">Source code</a></p>
     </div>
   </footer>
 </div>
