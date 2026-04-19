@@ -201,13 +201,18 @@
   <section id="join">
     <div class="section-header">
       <h2>Join Uncloud Day 2026</h2>
-      <p class="subtitle">Sign in with your Ethereum wallet to verify your attendance via the Ethereum Attestation Service (EAS).</p>
+      <p class="subtitle">Sign in with your Ethereum wallet to verify your attendance via the Ethereum Attestation Service (EAS). Attestations are stored offchain, so there are zero transaction fees.</p>
     </div>
     
     <div class="glass-card join-card">
       {#if errorMsg}
         <div class="error-msg">{errorMsg}</div>
       {/if}
+
+      <div class="privacy-notice">
+        <strong>Protect your privacy!</strong><br />
+        Please use your externally known public address or create a brand new one dedicated to this event.
+      </div>
       
       <div class="join-actions">
         <button class="btn-primary" on:click={handleJoin} disabled={isSigning}>
@@ -395,6 +400,18 @@
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+  }
+
+  .privacy-notice {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--accent-yellow);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border-radius: 4px;
+    line-height: 1.4;
   }
 
   .join-actions {
