@@ -100,8 +100,7 @@
     <div class="glass-card">
       <h2>About the Event</h2>
       <p>
-        Uncloud Day is a day dedicated to networking and presentations of projects and ideas from our collective. 
-        We gather to share progress, spark new collaborations, and push the boundaries of decentralized technology together.
+        Uncloud Open Research is a working group asking how to undo the cloud, finding the right balance between self-hosting on hardware you actually own and leaning on decentralised networks with real economic incentives, like Swarm for storage, ENS for naming, and open silicon with TEEs for trust. Active since 2022, no coin, no roadmap to sell. This event is an open invitation to sit in on the thinking and push on it.
       </p>
     </div>
   </section>
@@ -370,6 +369,13 @@
   }
 
   /* About */
+  #about p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
   h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
