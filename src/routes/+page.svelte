@@ -1,6 +1,55 @@
 <script>
   import { fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  import { connectWallet, createAndSignAttestation, fetchAttendees, resolveEnsData } from '$lib/eas.js';
+
   let isMapExpanded = $state(false);
+  let walletAddress = $state(null);
+  let walletClient = $state(null);
+  let attendees = $state([]);
+  let isLoadingAttendees = $state(true);
+  let isSigning = $state(false);
+  let errorMsg = $state('');
+
+  async function loadAttendees() {
+    isLoadingAttendees = true;
+    try {
+      const rawAttendees = await fetchAttendees();
+      attendees = await Promise.all(rawAttendees.map(async (att) => {
+        const ens = await resolveEnsData(att.attester);
+        return { ...att, name: ens.name, avatar: ens.avatar };
+      }));
+    } finally {
+      isLoadingAttendees = false;
+    }
+  }
+
+  onMount(async () => {
+    try {
+      await loadAttendees();
+    } catch (e) {
+      console.error("Failed to fetch attendees", e);
+    }
+  });
+
+  async function handleJoin() {
+    try {
+      errorMsg = '';
+      if (!walletAddress) {
+        const result = await connectWallet();
+        walletClient = result.walletClient;
+        walletAddress = result.address;
+      }
+      isSigning = true;
+      await createAndSignAttestation(walletClient, walletAddress);
+      await loadAttendees();
+    } catch (e) {
+      errorMsg = e.message || String(e);
+      console.error(e);
+    } finally {
+      isSigning = false;
+    }
+  }
 
   const schedule = [
     { start: '10:00', duration: '180 min', event: '[doors open]', speaker: 'chilling, networking' },
@@ -41,6 +90,7 @@
       <div class="cta-group">
         <a href="#about" class="btn-primary">Learn More</a>
         <a href="#schedule" class="btn-secondary">Check Schedule</a>
+        <a href="#join" class="btn-secondary">RSVP / Join</a>
       </div>
     </div>
   </section>
@@ -146,6 +196,63 @@
       <img src="/map.jpg" alt="Large Venue Map" class="venue-map-large" />
     </div>
   </div>
+
+  <!-- Join Section -->
+  <section id="join">
+    <div class="section-header">
+      <h2>Join Uncloud Day 2026</h2>
+      <p class="subtitle">Sign in with your Ethereum wallet to verify your attendance via the Ethereum Attestation Service (EAS).</p>
+    </div>
+    
+    <div class="glass-card join-card">
+      {#if errorMsg}
+        <div class="error-msg">{errorMsg}</div>
+      {/if}
+      
+      <div class="join-actions">
+        <button class="btn-primary" on:click={handleJoin} disabled={isSigning}>
+          {#if isSigning}
+            Signing...
+          {:else if walletAddress}
+            Sign Attestation
+          {:else}
+            Connect Wallet & Join
+          {/if}
+        </button>
+      </div>
+
+      {#if walletAddress}
+        <p class="connected-info">Connected as: <strong>{walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}</strong></p>
+      {/if}
+
+      <div class="attendees-list">
+        <h3>Confirmed Attendees ({attendees.length})</h3>
+        {#if isLoadingAttendees}
+          <div class="attendee-loader">
+            <div class="loader-spinner"></div>
+            <span>Loading...</span>
+          </div>
+        {:else if attendees.length === 0}
+          <p>No one has attested yet. Be the first!</p>
+        {:else}
+          <ul class="attendee-items">
+            {#each attendees as att}
+              <li>
+                <a href="https://easscan.org/offchain/attestation/view/{att.id}" target="_blank" rel="noopener noreferrer" class="attendee-pill">
+                  {#if att.avatar}
+                    <img src={att.avatar} alt="ENS Avatar" class="att-avatar" />
+                  {:else}
+                    <div class="att-avatar-placeholder"></div>
+                  {/if}
+                  <span class="att-name">{att.name || `${att.attester.slice(0, 6)}...${att.attester.slice(-4)}`}</span>
+                </a>
+              </li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ Section -->
   <section id="faq">
@@ -281,6 +388,119 @@
     font-size: 3rem;
     font-weight: 800;
     color: var(--accent-yellow);
+  }
+
+  /* Join Section */
+  .join-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .join-actions {
+    margin: 2rem 0;
+  }
+
+  .connected-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  .error-msg {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid red;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: #ffcccc;
+  }
+
+  .attendees-list {
+    margin-top: 2rem;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .attendees-list h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--accent-yellow);
+  }
+
+  .attendee-loader {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .loader-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--accent-yellow);
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .attendee-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .attendee-items li {
+    display: block;
+  }
+
+  .attendee-pill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1rem 0.4rem 0.4rem;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .attendee-pill:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .att-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .att-avatar-placeholder {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--primary-pink) 100%);
+    opacity: 0.8;
+  }
+
+  .att-name {
+    font-weight: 500;
   }
 
   /* Schedule Compact */
