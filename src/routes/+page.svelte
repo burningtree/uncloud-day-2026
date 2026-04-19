@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
-  let isMapExpanded = false;
+  let isMapExpanded = $state(false);
 
   const schedule = [
     { start: '10:00', duration: '180 min', event: '[doors open]', speaker: 'chilling, networking' },
@@ -132,7 +132,7 @@
 
         <div class="map-container-merged">
           <button class="map-trigger" on:click={toggleMap} aria-label="Expand map">
-            <img src="/map.png" alt="Venue Map" class="venue-map-mini" />
+            <img src="/map.jpg" alt="Venue Map" class="venue-map-mini" />
             <span class="expand-hint">Click to expand map</span>
           </button>
         </div>
@@ -143,7 +143,7 @@
   <div class="map-overlay" class:active={isMapExpanded} on:click={toggleMap}>
     <div class="map-modal" on:click|stopPropagation>
       <button class="close-btn" on:click={toggleMap} aria-label="Close modal">&times;</button>
-      <img src="/map.png" alt="Large Venue Map" class="venue-map-large" />
+      <img src="/map.jpg" alt="Large Venue Map" class="venue-map-large" />
     </div>
   </div>
 
