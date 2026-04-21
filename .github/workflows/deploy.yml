@@ -15,7 +15,7 @@ jobs:
       - name: Build website
         run: bun i && bun run build
       - name: Deploy the site
-        run: omnipin deploy ./build --strict --providers=Filecoin --filecoin-chain=calibration --ens day.uncloud.eth --safe 0x67a0A78f47CFAB03b4CD5502DE8c22Cf34f2561E
+        run: omnipin deploy ./build --strict --providers=Filecoin --filecoin-chain=calibration --ens day.uncloud.eth --safe uncloud.eth
         env:
           OMNIPIN_FILECOIN_TOKEN: ${{ secrets.OMNIPIN_FILECOIN_TOKEN }}
           OMNIPIN_PK: ${{ secrets.OMNIPIN_FILECOIN_TOKEN }}
