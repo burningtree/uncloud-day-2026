@@ -52,22 +52,24 @@
   }
 
   const schedule = [
-    { start: '10:00', duration: '180 min', event: '[doors open]', speaker: 'chilling, networking' },
-    { start: '12:00', duration: '30 min', event: 'What is Uncloud?', speaker: 'group discussion' },
-    { start: '12:30', duration: '30 min', event: 'cjp2p', speaker: 'Kermit' },
-    { start: '13:00', duration: '30 min', event: 'deboot update', speaker: 'Chris'},
-    { start: '13:30', duration: '30 min', event: 'Bee in Browser', speaker: 'Pavel' },
-    { start: '14:00', duration: '30 min', event: '*TBC', speaker: 'Viktor' },
-    { start: '14:30', duration: '30 min', event: '*TBC', speaker: 'Aata.eth'},
-    { start: '15:00', duration: '30 min', event: '*TBC', speaker: 'Casey'},
-    { start: '15:30', duration: '30 min', event: '*TBC', speaker: 'TBC'},
-    { start: '16:00', duration: '30 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
+    { start: '10:00', duration: '150 min', event: '[doors open]', speaker: 'chilling, networking' },
+    { start: '12:30', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
+    { start: '12:55', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
+    { start: '13:20', duration: '20 min', event: 'deboot / demail', speaker: 'Chris' },
+    { start: '13:45', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
+    { start: '14:05', duration: '15 min', event: '[coffee break]', speaker: 'recharge' },
+    { start: '14:20', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
+    { start: '14:45', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '15:10', duration: '20 min', event: '*TBC', speaker: 'Aata.eth' },
+    { start: '15:35', duration: '20 min', event: '*TBC', speaker: 'Casey' },
+    { start: '16:00', duration: '20 min', event: '*TBC', speaker: 'Marios' },
+    { start: '16:20', duration: '10 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
   ];
 
   const faqs = [
-    { q: 'Who is this for?', a: 'This event is for everybody who is interested in decentralized technologies.' },
+    { q: 'Who is this for?', a: 'This event is for everybody who is interested in decentralised technologies.' },
     { q: 'Is there an entrance fee?', a: 'Entrance is completely free and everybody is welcome!' },
-    { q: 'Will there be food and drinks?', a: 'We do not provide food or drinks, but some basic drinks can be purchased directly at the venue.' }
+    { q: 'Will there be food and drinks?', a: 'Drinks can be purchased directly at the venue.' }
   ];
 
   function toggleMap() {
@@ -81,7 +83,7 @@
     <div class="hero-content">
       <img src="/logo.png" alt="Uncloud Day Logo" class="main-logo" />
       <h1>Uncloud Day 2026</h1>
-      <p class="subtitle">Decentralize the Internet.</p>
+      <p class="subtitle">Uncloud the internet</p>
       <div class="event-info">
         <p class="date">Thursday 7. May 2026</p>
         <p class="location">@ LibertyLoft, Prague, Czech Republic</p>
@@ -277,7 +279,7 @@
   <footer>
     <div class="footer-content">
       <img src="/logo.png" alt="Uncloud Logo" class="footer-logo" />
-      <p>Organized by Uncloud Open Research, a nonprofit open collective.</p>
+      <p>Organised by Uncloud Open Research collective</p>
       <p>Source code: <a href="https://app.radicle.xyz/nodes/seed.pp0.co/rad%3AzP2BLJhnCDBiokEgD6PqTSeQLW1r">Radicle</a>, <a href="https://github.com/burningtree/uncloud-day-2026">GitHub</a></p>
     </div>
   </footer>
