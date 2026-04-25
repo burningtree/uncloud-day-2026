@@ -3,18 +3,18 @@
   let isMapExpanded = false;
 
   const schedule = [
-    { start: '10:00', duration: '90 min', event: '[doors open]', speaker: 'chilling, networking' },
-    { start: '11:30', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
-    { start: '11:55', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
-    { start: '12:20', duration: '20 min', event: 'deboot / demail', speaker: 'Chris' },
-    { start: '12:45', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
-    { start: '13:10', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
-    { start: '13:35', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
-    { start: '14:00', duration: '20 min', event: '*TBC', speaker: 'Aata.eth' },
-    { start: '14:25', duration: '20 min', event: '*TBC', speaker: 'Casey' },
-    { start: '14:50', duration: '20 min', event: '*TBC', speaker: 'Marios' },
-    { start: '15:15', duration: '20 min', event: '*TBC', speaker: 'Henning' },
-    { start: '15:40', duration: '20 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
+    { start: '10:00', duration: '150 min', event: '[doors open]', speaker: 'chilling, networking' },
+    { start: '12:30', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
+    { start: '12:55', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
+    { start: '13:20', duration: '20 min', event: 'deboot / demail', speaker: 'Chris' },
+    { start: '13:45', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
+    { start: '14:05', duration: '15 min', event: '[coffee break]', speaker: 'recharge' },
+    { start: '14:20', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
+    { start: '14:45', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '15:10', duration: '20 min', event: '*TBC', speaker: 'Aata.eth' },
+    { start: '15:35', duration: '20 min', event: '*TBC', speaker: 'Casey' },
+    { start: '16:00', duration: '20 min', event: '*TBC', speaker: 'Marios' },
+    { start: '16:20', duration: '10 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
   ];
 
   const faqs = [
@@ -38,7 +38,7 @@
       <div class="event-info">
         <p class="date">Thursday 7. May 2026</p>
         <p class="location">@ LibertyLoft, Prague, Czech Republic</p>
-        <p class="time-slot">10:00 - 16:00</p>
+        <p class="time-slot">10:00 - 16:30</p>
       </div>
       <div class="cta-group">
         <a href="#about" class="btn-primary">Learn More</a>
