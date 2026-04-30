@@ -57,7 +57,7 @@
     { start: '12:25', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
     { start: '12:50', duration: '20 min', event: '______mail', speaker: 'Chris' },
     { start: '13:15', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
-    { start: '13:40', duration: '20 min', event: 'Agentic Sovereignty', speaker: 'Andrei' },
+    { start: '13:40', duration: '20 min', event: 'Swarm MCP & x402', speaker: 'Andrei' },
     { start: '14:00', duration: '20 min', event: '[coffee break]', speaker: 'recharge' },
     { start: '14:20', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
     { start: '14:45', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
