@@ -52,14 +52,15 @@
   }
 
   const schedule = [
-    { start: '10:00', duration: '150 min', event: '[doors open]', speaker: 'chilling, networking' },
-    { start: '12:30', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
-    { start: '12:55', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
-    { start: '13:20', duration: '20 min', event: 'deboot / demail', speaker: 'Chris' },
-    { start: '13:45', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
-    { start: '14:05', duration: '15 min', event: '[coffee break]', speaker: 'recharge' },
-    { start: '14:20', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
-    { start: '14:45', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '10:00', duration: '120 min', event: '[doors open]', speaker: 'chilling, networking' },
+    { start: '12:00', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
+    { start: '12:25', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
+    { start: '12:50', duration: '20 min', event: '______mail', speaker: 'Chris' },
+    { start: '13:15', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
+    { start: '13:40', duration: '20 min', event: 'Agentic Sovereignty', speaker: 'Andrei' },
+    { start: '14:00', duration: '20 min', event: '[coffee break]', speaker: 'recharge' },
+    { start: '14:20', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '14:45', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
     { start: '15:10', duration: '20 min', event: '*TBC', speaker: 'Aata.eth' },
     { start: '15:35', duration: '20 min', event: '*TBC', speaker: 'Casey' },
     { start: '16:00', duration: '20 min', event: '*TBC', speaker: 'Marios' },
@@ -69,7 +70,7 @@
   const faqs = [
     { q: 'Who is this for?', a: 'This event is for everybody who is interested in decentralised technologies.' },
     { q: 'Is there an entrance fee?', a: 'Entrance is completely free and everybody is welcome!' },
-    { q: 'Will there be food and drinks?', a: 'Drinks can be purchased directly at the venue.' }
+    { q: 'Will there be refreshments?', a: 'Drinks can be purchased directly at the venue.' }
   ];
 
   function toggleMap() {
@@ -280,7 +281,7 @@
     <div class="footer-content">
       <img src="/logo.png" alt="Uncloud Logo" class="footer-logo" />
       <p>Organised by Uncloud Open Research collective</p>
-      <p>Source code: <a href="https://app.radicle.xyz/nodes/seed.pp0.co/rad%3AzP2BLJhnCDBiokEgD6PqTSeQLW1r">Radicle</a>, <a href="https://github.com/burningtree/uncloud-day-2026">GitHub</a></p>
+      <p>Source code: <a href="https://app.radicle.xyz/nodes/seed.pp0.co/rad%3AzP2BLJhnCDBiokEgD6PqTSeQLW1r">Radicle</a>. Content hosting: <a href="https://ethswarm.org" target="_blank" rel="noopener noreferrer">Swarm</a></p>
     </div>
   </footer>
 </div>
