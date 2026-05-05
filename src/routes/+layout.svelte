@@ -18,7 +18,7 @@
 			<a href="#about">About</a>
 			<a href="#schedule">Schedule</a>
 			<a href="#venue">Venue</a>
-			<a href="#join">RSVP</a>
+			<!--a href="#join">RSVP</a-->
 			<a href="#faq">FAQ</a>
 		</div>
 	</div>

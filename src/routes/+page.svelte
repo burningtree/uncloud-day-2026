@@ -52,19 +52,20 @@
   }
 
   const schedule = [
-    { start: '10:00', duration: '120 min', event: '[doors open]', speaker: 'chilling, networking' },
-    { start: '12:00', duration: '20 min', event: 'What is Uncloud?', speaker: 'group discussion' },
-    { start: '12:25', duration: '20 min', event: 'Bee in Browser', speaker: 'Pavel' },
-    { start: '12:50', duration: '20 min', event: '______mail', speaker: 'Chris' },
-    { start: '13:15', duration: '20 min', event: 'LCDP', speaker: 'Kermit' },
-    { start: '13:40', duration: '20 min', event: 'Swarm MCP & x402', speaker: 'Andrei' },
-    { start: '14:00', duration: '20 min', event: '[coffee break]', speaker: 'recharge' },
-    { start: '14:20', duration: '20 min', event: '*TBC', speaker: 'Viktor' },
-    { start: '14:45', duration: '20 min', event: 'Routing', speaker: 'group discussion' },
-    { start: '15:10', duration: '20 min', event: '*TBC', speaker: 'Aata.eth' },
-    { start: '15:35', duration: '20 min', event: '*TBC', speaker: 'Casey' },
-    { start: '16:00', duration: '20 min', event: '*TBC', speaker: 'Marios' },
-    { start: '16:20', duration: '10 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
+    { start: '10:00', duration: '90 min', event: '[doors open]', speaker: 'chilling, networking' },
+    { start: '11:30', duration: '25 min', event: 'What is Uncloud?', speaker: 'group discussion' },
+    { start: '11:55', duration: '25 min', event: 'Bee in Browser', speaker: 'Pavel' },
+    { start: '12:20', duration: '25 min', event: '______mail', speaker: 'Chris' },
+    { start: '12:45', duration: '25 min', event: 'LCDP', speaker: 'Kermit' },
+    { start: '13:10', duration: '25 min', event: 'Swarm MCP & x402', speaker: 'Andrei' },
+    { start: '13:35', duration: '25 min', event: '[coffee break]', speaker: 'recharge' },
+    { start: '14:00', duration: '25 min', event: '*TBC', speaker: 'Viktor' },
+    { start: '14:25', duration: '25 min', event: 'Routing', speaker: 'group discussion' },
+    { start: '14:50', duration: '25 min', event: '*TBC', speaker: 'Aata.eth' },
+    { start: '15:15', duration: '25 min', event: '*TBC', speaker: 'Casey' },
+    { start: '15:40', duration: '25 min', event: '*TBC', speaker: 'Marios' },
+    { start: '16:05', duration: '25 min', event: 'Ad Larem: a place-bound root for agentic infrastructure', speaker: 'Cs Ar' },
+    { start: '16:30', duration: '10 min', event: '[closing]', speaker: 'heading to ', linkText: 'Web3Privacy Now Meetup', linkUrl: 'https://luma.com/98pzi0jh', speakerSuffix: ' together' }
   ];
 
   const faqs = [
@@ -93,7 +94,7 @@
       <div class="cta-group">
         <a href="#about" class="btn-primary">Learn More</a>
         <a href="#schedule" class="btn-secondary">Check Schedule</a>
-        <a href="#join" class="btn-secondary">RSVP / Join</a>
+        <!--a href="#join" class="btn-secondary">RSVP / Join</a-->
       </div>
     </div>
   </section>
@@ -118,7 +119,7 @@
         <div class="schedule-row">
           <div class="time-block-compact">
             <span class="t-start-prominent">{item.start}</span>
-            <span class="t-duration-subtle">{item.duration}</span>
+            <!--span class="t-duration-subtle">{item.duration}</span-->
           </div>
           <div class="event-info-compact">
             <span class="e-title">{item.event}</span>
@@ -199,7 +200,7 @@
     </div>
   </div>
 
-  <!-- Join Section -->
+  <!-- Join Section
   <section id="join">
     <div class="section-header">
       <h2>Join Uncloud Day 2026</h2>
@@ -260,6 +261,7 @@
       </div>
     </div>
   </section>
+    -->
 
   <!-- FAQ Section -->
   <section id="faq">
